@@ -3,16 +3,16 @@
 set -e
 
 ########################################################
-# 
-#         Pterodactyl-AutoThemes Installation
-#
-#         Created and maintained by Ferks-FK
-#
-#            Protected by GPL 3.0 License
-#
+#                                                      #
+#         Instalação do Pterodactyl-AutoThemes         #
+#                                                      #
+#           Criado e mantido por StuxDev               #
+#                                                      #
+#            Protegido pela licença MIT                #
+#                                                      #
 ########################################################
 
-#### Variables ####
+#### Variáveis ####
 SCRIPT_VERSION="v0.8.2"
 ARGON="APP_THEME=argon"
 
@@ -30,14 +30,14 @@ hyperlink() {
 }
 
 
-#### Colors ####
+#### cores ####
 
 GREEN="\e[0;92m"
 YELLOW="\033[1;33m"
 reset="\e[0m"
 
 
-#### OS check ####
+#### verificação do sistema operacional ####
 
 check_distro() {
   if [ -f /etc/os-release ]; then
@@ -70,12 +70,12 @@ check_distro() {
 }
 
 
-#### Install Dependencies ####
+#### Instalar dependências ####
 
 dependencies() {
 echo
 print_brake 30
-echo -e "* ${GREEN}Installing dependencies...${reset}"
+echo -e "* ${GREEN}Instalando dependências...${reset}"
 print_brake 30
 echo
 case "$OS" in
@@ -94,17 +94,17 @@ fi
 }
 
 
-#### Panel Backup ####
+#### Backup do painel ####
 
 backup() {
 echo
 print_brake 32
-echo -e "* ${GREEN}Performing security backup...${reset}"
+echo -e "* ${GREEN}Fazendo backup de segurança...${reset}"
 print_brake 32
 if [ -f "/var/www/pterodactyl/PanelBackup/PanelBackup.zip" ]; then
 echo
 print_brake 45
-echo -e "* ${GREEN}There is already a backup, skipping step...${reset}"
+echo -e "* ${GREEN}Já existe um backup, pulando etapa...${reset}"
 print_brake 45
 echo
 else
@@ -120,7 +120,7 @@ fi
 
 download_files() {
 print_brake 25
-echo -e "* ${GREEN}Downloading files...${reset}"
+echo -e "* ${GREEN}Baixando arquivos...${reset}"
 print_brake 25
 cd /var/www/pterodactyl
 mkdir -p temp
@@ -141,15 +141,15 @@ php /var/www/pterodactyl/artisan view:clear
 bye() {
 print_brake 50
 echo
-echo -e "* ${GREEN}The theme ${YELLOW}Argon${GREEN} was successfully installed."
-echo -e "* A security backup of your panel has been created."
-echo -e "* Thank you for using this script."
+echo -e "* ${GREEN}O tema ${YELLOW}Argon${GREEN} foi instalado com sucesso."
+echo -e "* Um backup de segurança do seu painel foi criado."
+echo -e "* Obrigado por usar este script."
 echo
 print_brake 50
 }
 
 
-#### Exec Script ####
+#### Script Exec ####
 check_distro
 dependencies
 backup

@@ -3,18 +3,18 @@
 set -e
 
 ########################################################
-# 
-#         Pterodactyl-AutoThemes Installation
-#
-#         Created and maintained by Ferks-FK
-#
-#            Protected by GPL 3.0 License
-#
+#                                                      #
+#         Instalação do Pterodactyl-AutoThemes         #
+#                                                      #
+#           Criado e mantido por StuxDev               #
+#                                                      #
+#            Protegido pela licença MIT                #
+#                                                      #
 ########################################################
 
-#### Fixed Variables ####
+#### Variáveis ​​Fixas ####
 
-SUPPORT_LINK="https://discord.gg/buDBbSGJmQ"
+SUPPORT_LINK="https://discord.gg/Gjya95e"
 
 #### Update Variables ####
 
@@ -40,13 +40,13 @@ print() {
 
 print_warning() {
   echo ""
-  echo -e "* ${YELLOW}WARNING${RESET}: $1"
+  echo -e "* ${YELLOW}AVISO${RESET}: $1"
   echo ""
 }
 
 print_error() {
   echo ""
-  echo -e "* ${RED}ERROR${RESET}: $1"
+  echo -e "* ${RED}ERRO${RESET}: $1"
   echo ""
 }
 
@@ -59,10 +59,10 @@ YELLOW="\033[1;33m"
 RESET="\e[0m"
 RED='\033[0;31m'
 
-#### Find where pterodactyl is installed ####
+#### Descubra onde o pterodactyl está instalado ####
 
 find_pterodactyl() {
-print "Looking for your pterodactyl installation..."
+print "Procurando sua instalação de pterodactyl..."
 
 sleep 2
 if [ -d "/var/www/pterodactyl" ]; then
@@ -77,40 +77,40 @@ if [ -d "/var/www/pterodactyl" ]; then
   else
     PTERO_INSTALL=false
 fi
-# Update the variables after detection of the pterodactyl installation #
+# Atualize as variáveis ​​após a detecção da instalação do pterodactyl #
 update_variables
 }
 
-#### Deletes all files installed by the script ####
+#### Exclui todos os arquivos instalados pelo script ####
 
 delete_files() {
-#### THEMES DRACULA, ENOLA AND TWILIGHT ####
+#### TEMAS DRÁCULA, ENOLA E CREPÚSCULO ####
 if [ -f "$DET" ]; then
   rm -rf "$DET"
   rm -rf "$PTERO/resources/scripts/user.css"
 fi
-#### THEMES DRACULA, ENOLA AND TWILIGHT ####
+#### TEMAS DRÁCULA, ENOLA E CREPÚSCULO ####
 
-#### THEME ZINGTHEME ####
+#### TEMA ZINGTHEME ####
 if [ -f "$ZING" ]; then
   rm -rf "$ZING"
   rm -rf "$PTERO/resources/scripts/components/server/files/FileViewer.tsx"
 fi
-#### THEME ZINGTHEME ####
+#### TEMA ZINGTHEME ####
 
-#### BACKGROUND VIDEO ####
+#### VÍDEO DE FUNDO ####
 if [ -f "$PTERO/public/$BACKGROUND" ]; then
   rm -rf "$PTERO/public/$BACKGROUND"
   rm -rf "$PTERO/resources/scripts/user.css"
   rm -rf "$INFORMATIONS"
 fi
-#### BACKGROUND VIDEO ####
+#### VÍDEO DE FUNDO ####
 }
 
-#### Restore Backup ####
+#### Restaurar backup ####
 
 restore() {
-print "Checking for a backup..."
+print "Verificando um backup..."
 
 if [ -d "$PTERO/PanelBackup[Auto-Themes]" ]; then
     cd "$PTERO/PanelBackup[Auto-Themes]"
@@ -119,7 +119,7 @@ if [ -d "$PTERO/PanelBackup[Auto-Themes]" ]; then
     cp -r -- * .env "$PTERO"
     rm -rf "$PTERO/PanelBackup[Auto-Themes]"
   else
-    print_error "There was no backup to restore, Aborting..."
+    print_error "Não havia backup para restaurar, Abortando..."
     exit 1
 fi
 }
@@ -127,9 +127,9 @@ fi
 bye() {
 print_brake 50
 echo
-echo -e "${GREEN}* Backup restored successfully!"
-echo -e "* Thank you for using this script."
-echo -e "* Support group: ${YELLOW}$(hyperlink "$SUPPORT_LINK")${RESET}"
+echo -e "${GREEN}* Backup restaurado com sucesso!"
+echo -e "* Obrigado por usar este script."
+echo -e "* Grupo de suporte: ${YELLOW}$(hyperlink "$SUPPORT_LINK")${RESET}"
 echo
 print_brake 50
 }
@@ -137,17 +137,17 @@ print_brake 50
 #### Exec Script ####
 find_pterodactyl
 if [ "$PTERO_INSTALL" == true ]; then
-    print "Installation of the panel found, continuing the backup..."
+    print "Instalação do painel encontrada, continuando o backup..."
     delete_files
     restore
     bye
   elif [ "$PTERO_INSTALL" == false ]; then
-    print_warning "The installation of your panel could not be located."
+    print_warning "Não foi possível localizar a instalação do seu painel."
     echo -e "* ${GREEN}EXAMPLE${RESET}: ${YELLOW}/var/www/mypanel${RESET}"
-    echo -ne "* Enter the pterodactyl installation directory manually: "
+    echo -ne "* Insira o diretório de instalação do pterodáctilo manualmente: "
     read -r MANUAL_DIR
     if [ -d "$MANUAL_DIR" ]; then
-        print "Directory has been found!"
+        print "O diretório foi encontrado!"
         PTERO="$MANUAL_DIR"
         echo "$MANUAL_DIR" >> "$INFORMATIONS/custom_directory.txt"
         update_variables
@@ -155,7 +155,7 @@ if [ "$PTERO_INSTALL" == true ]; then
         restore
         bye
       else
-        print_error "The directory you entered does not exist."
+        print_error "O diretório que você digitou não existe."
         find_pterodactyl
     fi
 fi

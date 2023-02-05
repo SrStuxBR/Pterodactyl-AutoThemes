@@ -3,16 +3,16 @@
 set -e
 
 ########################################################
-# 
-#         Pterodactyl-AutoThemes Installation
-#
-#         Created and maintained by Ferks-FK
-#
-#            Protected by GPL 3.0 License
-#
+#                                                      #
+#         Instalação do Pterodactyl-AutoThemes         #
+#                                                      #
+#           Criado e mantido por StuxDev               #
+#                                                      #
+#            Protegido pela licença MIT                #
+#                                                      #
 ########################################################
 
-#### Variables ####
+#### Variáveis ####
 SCRIPT_VERSION="v0.8.2"
 
 
@@ -29,14 +29,14 @@ hyperlink() {
 }
 
 
-#### Colors ####
+#### cores ####
 
 GREEN="\e[0;92m"
 YELLOW="\033[1;33m"
 reset="\e[0m"
 
 
-#### OS check ####
+#### verificação do sistema operacional ####
 
 check_distro() {
   if [ -f /etc/os-release ]; then
@@ -69,7 +69,7 @@ check_distro() {
 }
 
 
-#### Install Dependencies ####
+#### Instalar dependências ####
 
 dependencies() {
 echo
