@@ -83,7 +83,7 @@ echo
 echo "* Copyright (C) 2022 - $(date +%Y), SrStuxBR."
 echo "* https://github.com/SrStuxBR/Pterodactyl-AutoThemes"
 echo
-echo "* Este script não está associado ao Projeto Pterodáctilo oficial."
+echo "* Este script não está associado ao Projeto Pterodactyl oficial."
 print_brake 70
 echo
 
