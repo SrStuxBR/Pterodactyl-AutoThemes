@@ -4,7 +4,7 @@
 </br>
 
 ![Discord](https://img.shields.io/discord/580209652004945940?label=DISCORD&style=for-the-badge)
-![Contributors](https://img.shields.io/github/contributors-anon/SrStuxBR/Pterodactyl-AutoThemescolor=q&label=Contribuidores&style=for-the-badge)
+![Contributors](https://img.shields.io/github/contributors-anon/SrStuxBR/Pterodactyl-AutoThemes?color=q&label=Contribuidores&style=for-the-badge)
 
 Este é um script de instalação de tema para o [Pterodactyl Panel](https://github.com/pterodactyl/panel).<br>
 O script instala temas compatíveis com suas respectivas versões de painel.
